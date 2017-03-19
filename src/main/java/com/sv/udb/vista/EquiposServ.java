@@ -69,6 +69,24 @@ public class EquiposServ extends HttpServlet {
                     mens = "Error al consultar";
                 }
             }
+            else if(CRUD.equals("Eliminar"))
+            {
+                Equipos obje = new Equipos();
+                int codi= Integer.parseInt(request.getParameter("codiEquiRadi").isEmpty() ? "-1" : request.getParameter("codiEquiRadi"));
+                obje.setCodiEqui(codi);
+                if(new EquiposCtrl().elim(obje))
+                {
+                    mens="Datos Eliminados";
+                }
+                else
+                {
+                    mens="Error al eliminar";
+                }
+            }
+            else if(CRUD.equals("Modificar"))
+            {
+                
+            }
             request.setAttribute("mensAler",mens);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
