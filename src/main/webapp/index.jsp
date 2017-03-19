@@ -12,6 +12,7 @@
     <body>
         <h1>${mensAler}</h1>
         <form method="POST" action="EquiposServ" name="Demo">
+            <input hidden type="text" name="codi2" id="codi2" value="${codi}"/><br/>
             <input disabled type="text" name="codi" id="codi" value="${codi}"/><br/>
             <input type="text" name="nomb" id="nomb" value="${nomb}"/><br/>
             <input type="text" name="desc" id="desc" value="${desc}"/><br/>

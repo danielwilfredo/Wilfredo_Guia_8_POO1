@@ -85,6 +85,23 @@ public class EquiposServ extends HttpServlet {
             }
             else if(CRUD.equals("Modificar"))
             {
+                Equipos obje = new Equipos();
+           
+                System.err.println("Esta en modificar");
+                System.err.println("valor de las variables " + request.getParameter("codi2"));
+                System.err.println("valor de las variables " + request.getParameter("nomb"));
+                System.err.println("valor de las variables " + request.getParameter("desc"));
+                obje.setCodiEqui(Integer.parseInt(request.getParameter("codi2")));
+                obje.setNombreEqui(request.getParameter("nomb"));
+                obje.setDescEqui(request.getParameter("desc"));
+                if(new EquiposCtrl().modi(obje))
+                {
+                    mens="Datos Modificados";
+                }
+                else
+                {
+                    mens="Error al modificar";
+                }
                 
             }
             request.setAttribute("mensAler",mens);
