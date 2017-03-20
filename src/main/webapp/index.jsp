@@ -10,6 +10,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <h1>Mantenimiento Equipos</h1>
         <h1>${mensAler}</h1>
         <form method="POST" action="EquiposServ" name="Demo">
             <input hidden type="text" name="codi2" id="codi2" value="${codi}"/><br/>
