@@ -59,6 +59,63 @@ public class JugadoresServ extends HttpServlet {
                     mens="Error al guardar";
                 }
             }
+            else if(CRUD.equals("Consultar"))
+            {
+                
+                int codi = Integer.parseInt(
+                        request.getParameter("codiJugaRadi").isEmpty() 
+                        ? "-1" : request.getParameter("codiJugaRadi"));//Creamos una variable que me almacene
+                //el codigo seleccionado dependiendo del radio buton seleccionado
+               Jugadores obje = new JugadoresCtrl().consTodo2(codi);
+               if(obje != null)
+                {
+                    request.setAttribute("codiJuga", obje.getCodiJuga());
+                    request.setAttribute("nombJuga", obje.getNombJuga());
+                    request.setAttribute("edadJuga", obje.getEdadJuga());
+                    request.setAttribute("altuJuga", obje.getAltuJuga());
+                    request.setAttribute("pesoJuga", obje.getPesoJuga());
+                   
+                }
+                else
+                {
+                    mens = "Error al consultar";
+                }
+                
+            }
+            else if (CRUD.equals("Eliminar"))
+            {
+                Jugadores obje = new Jugadores();
+                int codi= Integer.parseInt(request.getParameter("codiJugaRadi").isEmpty() ? "-1" : request.getParameter("codiJugaRadi"));
+                obje.setCodiJuga(codi);
+                if(new JugadoresCtrl().elim(obje))
+                {
+                    mens="Datos Eliminados";
+                }
+                else
+                {
+                    mens="Error al eliminar";
+                }
+            }
+            else if(CRUD.equals("Modificar"))
+            {
+                Jugadores obje = new Jugadores();
+                obje.setCodiJuga(Integer.parseInt(request.getParameter("codiJuga")));
+                obje.setNombJuga(request.getParameter("nombJuga"));
+                obje.setEdadJuga(request.getParameter("edadJuga"));
+                obje.setAltuJuga(Integer.parseInt(request.getParameter("altuJuga")));
+                obje.setPesoJuga(request.getParameter("pesoJuga"));
+                obje.setCodiEqui(Integer.parseInt(request.getParameter("cmbEqui")));
+                
+                if(new JugadoresCtrl().modi(obje))
+                {
+                   mens="Datos Actualizados"; 
+                }
+                else
+                {
+                   mens="Error al Actualizar"; 
+                }
+                
+            }
              request.setAttribute("mensAler",mens);
             request.getRequestDispatcher("/jugadores.jsp").forward(request, response);
             

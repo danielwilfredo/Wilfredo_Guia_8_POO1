@@ -17,9 +17,9 @@
         <h1>Mantenimiento Jugadores</h1>
         <form method="POST" action="JugadoresServ" name="Demo">
         <h1>${mensAler}</h1>
-        <input hidden="" type="text" name="codiJuga" id="codiJuga" value="${codi}">
+        <input hidden="" type="text" name="codiJuga" id="codiJuga" value="${codiJuga}">
         <h5>Codigo</h5>
-        <input type="text" value="${codiJuga}">
+        <input disabled type="text" value="${codiJuga}">
          <h5>Nombre</h5>
         <input type="text" name="nombJuga" id="nombJuga" value="${nombJuga}">
          <h5>Edad</h5>
@@ -29,13 +29,13 @@
         <h5>Peso</h5>
         <input type="text" name="pesoJuga" id="pesoJuga" value="${pesoJuga}">
         <h5>Equipo</h5>
-        <SELECT NAME="cmbEqui" id="cmbEqui"> 
+        <SELECT name="cmbEqui" id="cmbEqui"> 
             <%
                 for(Jugadores temp : new JugadoresCtrl().consEqui())
                 {
                     
             %>
-            <option values="<%=temp.getCodiEqui() %>"><%=temp.getNombEqui() %></option>
+            <option value="<%=temp.getCodiEqui() %>"><%=temp.getNombEqui() %></option>
            <%
                             
                 }
