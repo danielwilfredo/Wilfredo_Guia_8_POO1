@@ -74,6 +74,7 @@ public class JugadoresServ extends HttpServlet {
                     request.setAttribute("edadJuga", obje.getEdadJuga());
                     request.setAttribute("altuJuga", obje.getAltuJuga());
                     request.setAttribute("pesoJuga", obje.getPesoJuga());
+                    request.setAttribute("cmbEqui", obje.getCodiEqui());
                    
                 }
                 else

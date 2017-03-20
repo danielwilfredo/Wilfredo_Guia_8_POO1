@@ -14,13 +14,16 @@
         <title>Jugadores</title>
     </head>
     <body>
-        <h1>Mantenimiento Jugadores</h1>
+        <ul>Seleccione mantenimiento:
+             <li><h2><a href="index.jsp">Mantenimiento Equipos</a></h2></li>
+             <li><h2><a href="jugadores.jsp">Mantenimiento Jugadores</a></h2></li>
+        </ul>
         <form method="POST" action="JugadoresServ" name="Demo">
         <h1>${mensAler}</h1>
         <input hidden="" type="text" name="codiJuga" id="codiJuga" value="${codiJuga}">
-        <h5>Codigo</h5>
+        <h5>Codigo jugador</h5>
         <input disabled type="text" value="${codiJuga}">
-         <h5>Nombre</h5>
+         <h5>Nombre jugador</h5>
         <input type="text" name="nombJuga" id="nombJuga" value="${nombJuga}">
          <h5>Edad</h5>
         <input type="text" name="edadJuga" id="edadJuga" value="${edadJuga}">

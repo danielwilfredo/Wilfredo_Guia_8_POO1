@@ -10,15 +10,21 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Mantenimiento Equipos</h1>
+        <ul>Seleccione mantenimiento:
+             <li><h2><a href="index.jsp">Mantenimiento Equipos</a></h2></li>
+             <li><h2><a href="jugadores.jsp">Mantenimiento Jugadores</a></h2></li>
+        </ul>
         <h1>${mensAler}</h1>
         <form method="POST" action="EquiposServ" name="Demo">
             <input hidden type="text" name="codi2" id="codi2" value="${codi}"/><br/>
+            <h5>Codigo equipo</h5>
             <input disabled type="text" name="codi" id="codi" value="${codi}"/><br/>
+            <h5>Nombre equipo</h5>
             <input type="text" name="nomb" id="nomb" value="${nomb}"/><br/>
-            <input type="text" name="desc" id="desc" value="${desc}"/><br/>
+            <h5>Descripcion</h5>
+            <input type="text" name="desc" id="desc" value="${desc}"/><br/><br/>
             <input type="submit" name="btnEqui" value="Guardar" />
-            <input type="submit" name="btnEqui" value="Modificar"/>
+             <input type="submit" name="btnEqui" value="Modificar"/>
         </form>
          <h1>La Tabla</h1>  
          <form method="POST" action="EquiposServ" name="Tabla">                                                                                  
