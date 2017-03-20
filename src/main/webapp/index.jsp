@@ -26,7 +26,7 @@
                 <tr>
                     <th>Cons</th>
                     <th>Nombre</th>
-                    <th>Duracion</th>
+                    <th>Descripcion</th>
                 </tr>
                 <%
                  for(Equipos temp : new EquiposCtrl().consTodo())

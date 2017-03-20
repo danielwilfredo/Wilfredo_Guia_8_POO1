@@ -107,11 +107,11 @@ public class JugadoresCtrl {
         try
         {
             PreparedStatement cmd = cn.prepareStatement("INSERT INTO jugadores VALUES(NULL,?,?,?,?,?)");
-            cmd.setInt(1, obje.getIdEquipo());
-            cmd.setString(2, obje.getNombreJ());
-            cmd.setString(3, obje.getEdad());
-            cmd.setInt(4, obje.getAltura());
-            cmd.setString(5, obje.getPeso());
+            cmd.setInt(1, obje.getCodiEqui());
+            cmd.setString(2, obje.getNombJuga());
+            cmd.setString(3, obje.getEdadJuga());
+            cmd.setInt(4, obje.getAltuJuga());
+            cmd.setString(5, obje.getPesoJuga());
             cmd.executeUpdate();
             resp=true;
         }
@@ -147,7 +147,7 @@ public class JugadoresCtrl {
         try
         {
             PreparedStatement cmd = cn.prepareStatement("Delete from jugadores where codi_juga = ?");
-            cmd.setString(1, String.valueOf(obje.getId()));
+            cmd.setString(1, String.valueOf(obje.getCodiJuga()));
             cmd.executeUpdate();
             resp=true;
         }
@@ -184,12 +184,12 @@ public class JugadoresCtrl {
         {
             PreparedStatement cmd = cn.prepareStatement("update jugadores set codi_equi = ?, nomb_juga = ?, edad_juga = ?, "
             + "altu_juga = ?, peso_juga = ? where codi_juga = ?");
-            cmd.setString(1, String.valueOf(obje.getIdEquipo())); 
-            cmd.setString(2, String.valueOf(obje.getNombreJ()));
-            cmd.setString(3, String.valueOf(obje.getEdad()));
-            cmd.setString(4, String.valueOf(obje.getAltura()));
-            cmd.setString(5, String.valueOf(obje.getPeso()));
-            cmd.setString(6, String.valueOf(obje.getId()));
+            cmd.setString(1, String.valueOf(obje.getCodiEqui())); 
+            cmd.setString(2, String.valueOf(obje.getNombJuga()));
+            cmd.setString(3, String.valueOf(obje.getEdadJuga()));
+            cmd.setString(4, String.valueOf(obje.getAltuJuga()));
+            cmd.setString(5, String.valueOf(obje.getPesoJuga()));
+            cmd.setString(6, String.valueOf(obje.getCodiJuga()));
             cmd.executeUpdate();
             resp=true;
         }

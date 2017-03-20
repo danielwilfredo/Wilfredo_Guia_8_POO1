@@ -11,93 +11,94 @@ package com.sv.udb.modelo;
  */
 
 public class Jugadores {
-    private int id;
-    private String nombreJ;
-    private String equipo;
-    private int idEquipo;
+    private int codiJuga;
+    private String nombJuga;
+    private String nombEqui;
+    private int codiEqui;
+    private String edadJuga;
+    private int altuJuga;
+    private String pesoJuga;
 
-    private String edad;
-    private int altura;
-
-    public int getAltura() {
-        return altura;
+    public String getPesoJuga() {
+        return pesoJuga;
     }
 
-    public void setAltura(int altura) {
-        this.altura = altura;
+    public void setPesoJuga(String pesoJuga) {
+        this.pesoJuga = pesoJuga;
     }
-    private String peso;
     
+
+    public int getCodiJuga() {
+        return codiJuga;
+    }
+
+    public void setCodiJuga(int codiJuga) {
+        this.codiJuga = codiJuga;
+    }
+
+    public String getNombJuga() {
+        return nombJuga;
+    }
+
+    public void setNombJuga(String nombJuga) {
+        this.nombJuga = nombJuga;
+    }
+
+    public String getNombEqui() {
+        return nombEqui;
+    }
+
+    public void setNombEqui(String nombEqui) {
+        this.nombEqui = nombEqui;
+    }
+
+    public int getCodiEqui() {
+        return codiEqui;
+    }
+
+    public void setCodiEqui(int codiEqui) {
+        this.codiEqui = codiEqui;
+    }
+
+    public String getEdadJuga() {
+        return edadJuga;
+    }
+
+    public void setEdadJuga(String edadJuga) {
+        this.edadJuga = edadJuga;
+    }
+
+    public int getAltuJuga() {
+        return altuJuga;
+    }
+
+    public void setAltuJuga(int altuJuga) {
+        this.altuJuga = altuJuga;
+    }
      @Override
     public String toString() {
-        return this.equipo ;
-    }
-
-    public String getNombreJ() {
-        return nombreJ;
-    }
-
-    public void setNombreJ(String nombreJ) {
-        this.nombreJ = nombreJ;
-    }
-
-    public Jugadores(int id, int idEquipo, String equipo, String nombreJ, String edad, int altura, String peso) {
-        this.id = id;
-        this.nombreJ = nombreJ;
-        this.equipo = equipo;
-        this.idEquipo = idEquipo;
-        this.edad = edad;
-        this.altura = altura;
-        this.peso = peso;
+        return this.nombEqui;
     }
     
-    public Jugadores(String equipo, int idEquipo) {
-        this.equipo = equipo;
-        this.idEquipo = idEquipo;
+    public Jugadores(String nombEqui, int codiEqui) {
+        this.nombEqui = nombEqui;
+        this.codiEqui = codiEqui;
     }
-
-    public Jugadores() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-
-    public String getEquipo() {
-        return equipo;
-    }
-
-    public void setEquipo(String equipo) {
-        this.equipo = equipo;
-    }
-
-    public int getIdEquipo() {
-        return idEquipo;
-    }
-
-    public void setIdEquipo(int idEquipo) {
-        this.idEquipo = idEquipo;
-    }
-
-    public String getEdad() {
-        return edad;
-    }
-
-    public void setEdad(String edad) {
-        this.edad = edad;
-    }
-
     
-    public String getPeso() {
-        return peso;
+     public Jugadores(int codiJuga, int codiEqui, String nombEqui, String nombJuga, String edadJuga,
+             int altuJuga, String pesoJuga) {
+        this.codiJuga = codiJuga;
+        this.nombJuga = nombJuga;
+        this.nombEqui = nombEqui;
+        this.codiEqui = codiEqui;
+        this.edadJuga = edadJuga;
+        this.altuJuga = altuJuga;
+        this.pesoJuga = pesoJuga;
     }
-
-    public void setPeso(String peso) {
-        this.peso = peso;
-    }
+     public Jugadores()
+     {}
+    
+    
 }
+
+
