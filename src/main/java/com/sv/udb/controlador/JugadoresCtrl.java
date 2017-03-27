@@ -30,7 +30,7 @@ public class JugadoresCtrl {
             ResultSet rs = cmd.executeQuery();
             while(rs.next())
             {
-                resp.add(new Jugadores(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getString(7)));
+                resp.add(new Jugadores(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getString(7), rs.getBytes(8)));
             }
             //Se carga el 
         }

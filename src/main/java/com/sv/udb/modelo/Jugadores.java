@@ -77,18 +77,7 @@ public class Jugadores {
         this.altuJuga = altuJuga;
     }
 
-    public Jugadores(int codiJuga, String nombJuga, String nombEqui, int codiEqui, String edadJuga, int altuJuga, String pesoJuga, byte[] imgJuga) {
-        this.codiJuga = codiJuga;
-        this.nombJuga = nombJuga;
-        this.nombEqui = nombEqui;
-        this.codiEqui = codiEqui;
-        this.edadJuga = edadJuga;
-        this.altuJuga = altuJuga;
-        this.pesoJuga = pesoJuga;
-        this.imgJuga = imgJuga;
-    }
-
-    public byte[] getImgJuga() {
+      public byte[] getImgJuga() {
         return imgJuga;
     }
 
@@ -105,8 +94,7 @@ public class Jugadores {
         this.codiEqui = codiEqui;
     }
     
-     public Jugadores(int codiJuga, int codiEqui, String nombEqui, String nombJuga, String edadJuga,
-             int altuJuga, String pesoJuga) {
+     public Jugadores(int codiJuga, int codiEqui, String nombEqui, String nombJuga, String edadJuga, int altuJuga, String pesoJuga, byte[] imgJuga) {
         this.codiJuga = codiJuga;
         this.nombJuga = nombJuga;
         this.nombEqui = nombEqui;
@@ -114,6 +102,18 @@ public class Jugadores {
         this.edadJuga = edadJuga;
         this.altuJuga = altuJuga;
         this.pesoJuga = pesoJuga;
+         this.imgJuga = imgJuga;
+    }
+     
+      public Jugadores(int codiJuga, int codiEqui, String nombEqui, String nombJuga, String edadJuga, int altuJuga, String pesoJuga) {
+        this.codiJuga = codiJuga;
+        this.nombJuga = nombJuga;
+        this.nombEqui = nombEqui;
+        this.codiEqui = codiEqui;
+        this.edadJuga = edadJuga;
+        this.altuJuga = altuJuga;
+        this.pesoJuga = pesoJuga;
+     
     }
      public Jugadores()
      {}

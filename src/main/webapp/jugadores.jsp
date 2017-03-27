@@ -140,6 +140,7 @@
                     <td><%=temp.getAltuJuga()%></td>
                     <td><%=temp.getPesoJuga()%></td>
                     <td><%=temp.getNombEqui()%></td>
+                    <td><img src="data:image/*;base64,<%=imgConv%>" class="materialboxed" width="100" height="100"></td>
                     
                 </tr>
                 <%
