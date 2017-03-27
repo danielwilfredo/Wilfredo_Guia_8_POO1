@@ -10,6 +10,7 @@ import com.sv.udb.modelo.Jugadores;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author DanielWilfredo
  */
+@MultipartConfig //Este CODIGO ES IMPORTANTE AGREGARLO SIN ESTO NO GUARDA LA IMAGEN
 @WebServlet(name = "JugadoresServ", urlPatterns = {"/JugadoresServ"})
 public class JugadoresServ extends HttpServlet {
 

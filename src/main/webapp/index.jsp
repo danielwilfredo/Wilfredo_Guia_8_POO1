@@ -36,7 +36,8 @@
             <div class="card-content white-text">
               <span class="card-title">Ingresar Equipos</span>
               <h1>${mensAler}</h1>
-        <form method="POST" action="EquiposServ" name="Demo">
+              <form method="POST" action="EquiposServ" name="Demo" enctype="multipart/form-data">
+                  <!--Importante agregarle el enctype"multipart/form-data"-->
             <input hidden type="text" name="codi2" id="codi2" value="${codi}"/><br/>
                 <h5>Codigo equipo</h5>
             <input disabled class="white-text" type="text" name="codi" id="codi" value="${codi}"/><br/>
@@ -47,10 +48,10 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>Imagen</span>
-                        <input type="file" name="foto" id="foto">
+                        <input type="file" name="foto" id="foto" required />
                     </div>
                         <div class="file-path-wrapper">
-                          <input class="file-path validate" type="text">
+                          <input class="file-path validate" name="foto" type="text" placeholder='1200x1200 máx., 2MB máx., PNG/JPG/GIF'>
                         </div>
                 
                 </div>

@@ -7,18 +7,22 @@ package com.sv.udb.vista;
 
 import com.sv.udb.controlador.EquiposCtrl;
 import com.sv.udb.modelo.Equipos;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author DanielWilfredo
  */
+@MultipartConfig
 @WebServlet(name = "EquiposServ", urlPatterns = {"/EquiposServ"})
 public class EquiposServ extends HttpServlet {
 
@@ -45,6 +49,24 @@ public class EquiposServ extends HttpServlet {
                 Equipos obje = new Equipos();
                 obje.setNombreEqui(request.getParameter("nomb"));
                 obje.setDescEqui(request.getParameter("desc"));
+                
+                //codigo para guardar la imagen
+                Part filepart = request.getPart("foto"); //obtiene la foto
+                int tamaImg = (int)filepart.getSize();//el tamaño de la foto
+                byte[] img = null; //declaramos variable para guardar la foto
+                if(filepart !=null)
+                {
+                    img = new byte[tamaImg];
+                    try(DataInputStream dataImg = new DataInputStream(filepart.getInputStream()))
+                    {
+                        dataImg.readFully(img);
+                    }
+                }
+                if(tamaImg > 0)
+                {
+                    obje.setImg(img);
+                }
+                
                 if(new EquiposCtrl().guar(obje))
                 {
                     mens = "Datos guardados";

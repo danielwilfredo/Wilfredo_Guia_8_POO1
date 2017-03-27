@@ -26,9 +26,10 @@ public class EquiposCtrl {
         Connection cn = new Conexion().getConn();
         try
         {
-            PreparedStatement cmd = cn.prepareStatement("INSERT INTO equipos VALUES(NULL,?,?)");
+            PreparedStatement cmd = cn.prepareStatement("INSERT INTO equipos VALUES(NULL,?,?,?)");
             cmd.setString(1, obje.getNombreEqui());
             cmd.setString(2, obje.getDescEqui());
+            cmd.setBytes(3, obje.getImg());
             cmd.executeUpdate();
             resp=true;
         }

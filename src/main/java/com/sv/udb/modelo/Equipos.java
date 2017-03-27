@@ -13,6 +13,7 @@ public class Equipos {
     private int CodiEqui;
     private String nombreEqui;
     private String descEqui;
+    private byte[] img;
 
     public int getCodiEqui() {
         return CodiEqui;
@@ -38,10 +39,26 @@ public class Equipos {
         this.descEqui = descEqui;
     }
 
+    public byte[] getImg() {
+        return img;
+    }
+
+    public void setImg(byte[] img) {
+        this.img = img;
+    }
+    
+
     public Equipos(int CodiEqui, String nombreEqui, String descEqui) {
         this.CodiEqui = CodiEqui;
         this.nombreEqui = nombreEqui;
         this.descEqui = descEqui;
+    }
+
+    public Equipos(int CodiEqui, String nombreEqui, String descEqui, byte[] img) {
+        this.CodiEqui = CodiEqui;
+        this.nombreEqui = nombreEqui;
+        this.descEqui = descEqui;
+        this.img = img;
     }
 
     public Equipos() {
