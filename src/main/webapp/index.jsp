@@ -10,28 +10,57 @@
         <link rel='stylesheet' href='webjars/materialize/0.97.3/dist/css/materialize.min.css'>
             <script type="text/javascript" src="webjars/jquery/2.1.4/jquery.min.js"></script>
             <script type="text/javascript" src="webjars/materialize/0.97.3/dist/js/materialize.min.js"></script>
-        <title>JSP Page</title>
+        <title>Mantenimiento Equipos</title>
     </head>
     <body>
-        <ul>Seleccione mantenimiento:
-             <li><h2><a href="index.jsp">Mantenimiento Equipos</a></h2></li>
-             <li><h2><a href="jugadores.jsp">Mantenimiento Jugadores</a></h2></li>
-        </ul>
-        <h1>${mensAler}</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col l12 s12 m12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Seleccione mantenimiento:</span>
+                 <ul>
+                     <li><h2><a href="index.jsp"><h4>Mantenimiento Equipos</h4></a></h2></li>
+                   <li><h2><a href="jugadores.jsp"><h4>Mantenimiento Jugadores</h4></a></h2></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+        
+        
+    <div class="row">
+        <div class="col l12 s12 m12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Ingresar Equipos</span>
+              <h1>${mensAler}</h1>
         <form method="POST" action="EquiposServ" name="Demo">
             <input hidden type="text" name="codi2" id="codi2" value="${codi}"/><br/>
-            <h5>Codigo equipo</h5>
-            <input disabled type="text" name="codi" id="codi" value="${codi}"/><br/>
-            <h5>Nombre equipo</h5>
+                <h5>Codigo equipo</h5>
+            <input disabled class="white-text" type="text" name="codi" id="codi" value="${codi}"/><br/>
+                <h5>Nombre equipo</h5>
             <input type="text" name="nomb" id="nomb" value="${nomb}"/><br/>
-            <h5>Descripcion</h5>
+                <h5>Descripcion</h5>
             <input type="text" name="desc" id="desc" value="${desc}"/><br/><br/>
-            <input type="submit" name="btnEqui" value="Guardar" />
-             <input type="submit" name="btnEqui" value="Modificar"/>
         </form>
-         <h1>La Tabla</h1>  
+          </div>
+            <div class="card-action">
+             <input class="btn waves-effect waves-light" type="submit" name="btnEqui" value="Guardar"/>
+             <input class="btn waves-effect waves-light" type="submit" name="btnEqui" value="Modificar"/>
+            </div>
+          </div>
+        </div>
+      </div>   
+    
          <form method="POST" action="EquiposServ" name="Tabla">                                                                                  
-            <table border="1">
+       <div class="row">
+        <div class="col l12 s12 m12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+                <span class="card-title"><center>Equipos</center></span>
+              <table border="1">
                 <tr>
                     <th>Cons</th>
                     <th>Nombre</th>
@@ -42,7 +71,8 @@
                  {
                 %>     
                 <tr>
-                    <td><input type="radio" name="codiEquiRadi" value="<%=temp.getCodiEqui()%>"></td>
+                    <td><input id="<%=temp.getCodiEqui()%>" name="codiEquiRadi" type="radio" value="<%=temp.getCodiEqui()%>"/>
+                     <label for="<%=temp.getCodiEqui()%>"></label></td>
                     <td><%=temp.getNombreEqui()%></td>
                     <td><%=temp.getDescEqui                                        ()%></td>
                 </tr>
@@ -50,8 +80,15 @@
                  }
                 %>
             </table>
-            <input type="submit" name="btnEqui" value="Consultar"/>
-            <input type="submit" name="btnEqui" value="Eliminar"/>
+            </div>
+            <div class="card-action">
+            <input class="btn waves-effect waves-light" type="submit" name="btnEqui" value="Consultar"/>
+            <input class="btn waves-effect waves-light" type="submit" name="btnEqui" value="Eliminar"/>
+            </div>
+          </div>
+        </div>
+      </div>
          </form>
+    </div>
     </body>
 </html>
