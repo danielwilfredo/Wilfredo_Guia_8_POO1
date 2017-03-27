@@ -7,6 +7,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel='stylesheet' href='webjars/materialize/0.97.3/dist/css/materialize.min.css'>
+            <script type="text/javascript" src="webjars/jquery/2.1.4/jquery.min.js"></script>
+            <script type="text/javascript" src="webjars/materialize/0.97.3/dist/js/materialize.min.js"></script>
         <title>JSP Page</title>
     </head>
     <body>
