@@ -200,4 +200,5 @@ public class EquiposCtrl {
         }
         return resp;
     } 
+    
 }

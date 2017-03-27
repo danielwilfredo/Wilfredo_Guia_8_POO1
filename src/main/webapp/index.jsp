@@ -44,6 +44,17 @@
             <input type="text" name="nomb" id="nomb" value="${nomb}"/><br/>
                 <h5>Descripcion</h5>
             <input type="text" name="desc" id="desc" value="${desc}"/><br/><br/>
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Imagen</span>
+                        <input type="file" name="foto" id="foto">
+                    </div>
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text">
+                        </div>
+                
+                </div>
+                <div><img src='data:image/*;base64,$row[foto]' class='materialboxed' width='100px' height='100px'/><div>
         </form>
           </div>
             <div class="card-action">
@@ -91,4 +102,5 @@
          </form>
     </div>
     </body>
+    
 </html>

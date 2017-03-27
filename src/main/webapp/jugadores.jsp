@@ -4,6 +4,8 @@
     Author     : DanielWilfredo
 --%>
 
+<%@page import="com.sv.udb.controlador.EquiposCtrl"%>
+<%@page import="com.sv.udb.modelo.Equipos"%>
 <%@page import="com.sv.udb.controlador.JugadoresCtrl"%>
 <%@page import="com.sv.udb.modelo.Jugadores"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,15 +13,34 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Jugadores</title>
+        <link rel='stylesheet' href='webjars/materialize/0.97.3/dist/css/materialize.min.css'>
+            <script type="text/javascript" src="webjars/jquery/2.1.4/jquery.min.js"></script>
+            <script type="text/javascript" src="webjars/materialize/0.97.3/dist/js/materialize.min.js"></script>
+        <title>Mantenimiento Jugadores</title>
     </head>
     <body>
-        <ul>Seleccione mantenimiento:
-             <li><h2><a href="index.jsp">Mantenimiento Equipos</a></h2></li>
-             <li><h2><a href="jugadores.jsp">Mantenimiento Jugadores</a></h2></li>
-        </ul>
+        <div class="container">
+        <div class="row">
+        <div class="col l12 s12 m12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Seleccione mantenimiento:</span>
+                 <ul>
+                     <li><h2><a href="index.jsp"><h4>Mantenimiento Equipos</h4></a></h2></li>
+                   <li><h2><a href="jugadores.jsp"><h4>Mantenimiento Jugadores</h4></a></h2></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+            
         <form method="POST" action="JugadoresServ" name="Demo">
-        <h1>${mensAler}</h1>
+          <div class="row">
+        <div class="col l12 m12 s12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Card Title</span>
+              <h1>${mensAler}</h1>
         <input hidden="" type="text" name="codiJuga" id="codiJuga" value="${codiJuga}">
         <h5>Codigo jugador</h5>
         <input disabled type="text" value="${codiJuga}">
@@ -32,27 +53,56 @@
         <h5>Peso</h5>
         <input type="text" name="pesoJuga" id="pesoJuga" value="${pesoJuga}">
         <h5>Equipo</h5>
-        <SELECT name="cmbEqui" id="cmbEqui"> 
-            <%
-                for(Jugadores temp : new JugadoresCtrl().consEqui())
-                {
-                    
-            %>
-            <option value="<%=temp.getCodiEqui() %>"><%=temp.getNombEqui() %></option>
-           <%
-                            
+        <select id="cmbEqui" name="cmbEqui" >
+      <option value="" disabled selected>Seleccione un equipo</option>
+       <%
+                for(Jugadores temp: new JugadoresCtrl().consTodo())
+               
+                { 
+                    int id=-1;
+                   if (request.getAttribute("cmbEqui") != null)
+                   {                       
+                        id =(Integer)request.getAttribute("cmbEqui");
+                   }                      
+                   
+                    if(temp.getCodiEqui() == id)
+                    {
+                 %>
+                        <option value="<%=temp.getCodiEqui()%>" SELECTED><%=temp.getNombEqui()%></option>;
+                
+               
+                <%}
+                    else
+                    {
+                 %>
+                        <option value="<%=temp.getCodiEqui()%>" ><%=temp.getNombEqui()%></option>;
+                
+               
+                <%}
                 }
-            %>
-            
-        </SELECT> <br><br>
-         <input type="submit" name="btnJuga" value="Guardar"/>
-         <input type="submit" name="btnJuga" value="Modificar"/>
+                %>
+     
+    </select>
+            </div>
+            <div class="card-action">
+             <input class="btn waves-effect waves-light" type="submit" name="btnJuga" value="Guardar"/>
+             <input class="btn waves-effect waves-light" type="submit" name="btnJuga" value="Modificar"/>
+            </div>
+          </div>
+        </div>
+   </div>       
          </form>
-        <br>
-        <!--Empieza la tabla de jugadores-->
-        
+       
         <form method="POST" action="JugadoresServ" name="Demo">
-                       <table border="1">
+                     
+         <!--Empieza la tabla de jugadores-->
+        
+          <div class="row">
+        <div class="col l12 m12 s12 ">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Card Title</span>
+                <table border="1">
                 <tr>
                     <th>Cons</th>
                     <th>Nombre</th>
@@ -68,7 +118,8 @@
                 %>   
                
                 <tr>
-                    <td><input type="radio" name="codiJugaRadi" value="<%=temp.getCodiJuga()%>"></td>
+                    <td><input id="<%=temp.getCodiJuga()%>" type="radio" name="codiJugaRadi" value="<%=temp.getCodiJuga()%>">
+                        <label for="<%=temp.getCodiJuga()%>"></label></td>
                     <td><%=temp.getNombJuga()%></td>
                     <td><%=temp.getEdadJuga()%></td>
                     <td><%=temp.getAltuJuga()%></td>
@@ -79,10 +130,23 @@
                  }
                 %>
                     </table>
-            <input type="submit" name="btnJuga" value="Consultar"/>
-            <input type="submit" name="btnJuga" value="Eliminar"/>
+            </div>
+            <div class="card-action">
+            <input class="btn waves-effect waves-light" type="submit" name="btnJuga" value="Consultar"/>
+            <input class="btn waves-effect waves-light" type="submit" name="btnJuga" value="Eliminar"/>
+            </div>
+          </div>
+        </div>
+   </div>
 
         </form>
 
     </body>
+    <script>
+       $(document).ready(function() {
+    $('select').material_select();
+  }); 
+    </script>
+      
+    </div>
 </html>
