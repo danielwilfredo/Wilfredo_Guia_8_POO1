@@ -26,8 +26,7 @@ public class JugadoresCtrl {
        Connection cn = new Conexion().getConn();
         try
         {
-            PreparedStatement cmd = cn.prepareStatement("select codi_juga,jugadores.codi_equi, nomb_equi, nomb_juga, edad_juga, altu_juga, peso_juga\n" +
-            "from jugadores, equipos where jugadores.codi_equi = equipos.codi_equi order by codi_juga");
+            PreparedStatement cmd = cn.prepareStatement("select codi_juga, jugadores.codi_equi, nomb_equi, nomb_juga, edad_juga, altu_juga, peso_juga , img_juga from jugadores, equipos where jugadores.codi_equi = equipos.codi_equi;");
             ResultSet rs = cmd.executeQuery();
             while(rs.next())
             {

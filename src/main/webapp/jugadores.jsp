@@ -4,6 +4,7 @@
     Author     : DanielWilfredo
 --%>
 
+<%@page import="java.util.Base64"%>
 <%@page import="com.sv.udb.controlador.EquiposCtrl"%>
 <%@page import="com.sv.udb.modelo.Equipos"%>
 <%@page import="com.sv.udb.controlador.JugadoresCtrl"%>
@@ -122,11 +123,13 @@
                     <th>Altura</th>
                     <th>Peso</th>
                     <th>Equipo</th>
+                    <th>Imagen Jugador</th>
                 </tr>
                  <%
                  for(Jugadores temp : new JugadoresCtrl().consTodo())
                      //Foreach para llenar los datos de la tabla jugadores
-                 {
+                 {   byte[] img = temp.getImgJuga();
+                     String imgConv = Base64.getEncoder().encodeToString(img);
                 %>   
                
                 <tr>
@@ -137,6 +140,7 @@
                     <td><%=temp.getAltuJuga()%></td>
                     <td><%=temp.getPesoJuga()%></td>
                     <td><%=temp.getNombEqui()%></td>
+                    
                 </tr>
                 <%
                  }
