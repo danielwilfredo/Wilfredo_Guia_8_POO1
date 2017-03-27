@@ -41,11 +41,11 @@
         <div class="col l12 m12 s12">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Card Title</span>
+              <span class="card-title">Agregar Jugadores</span>
               <h1>${mensAler}</h1>
         <input hidden="" type="text" name="codiJuga" id="codiJuga" value="${codiJuga}">
         <h5>Codigo jugador</h5>
-        <input disabled type="text" value="${codiJuga}">
+        <input disabled type="text" value="${codiJuga}" class="white-text">
          <h5>Nombre jugador</h5>
         <input type="text" name="nombJuga" id="nombJuga" value="${nombJuga}">
          <h5>Edad</h5>
@@ -114,7 +114,7 @@
         <div class="col l12 m12 s12 ">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Card Title</span>
+              <span class="card-title">Jugadores</span>
                 <table border="1">
                 <tr>
                     <th>Cons</th>
