@@ -34,7 +34,8 @@
         </div>
       </div>
             
-        <form method="POST" action="JugadoresServ" name="Demo">
+        <form method="POST" action="JugadoresServ" name="Demo" enctype="multipart/form-data">
+                  <!--Importante agregarle el enctype"multipart/form-data"-->
           <div class="row">
         <div class="col l12 m12 s12">
           <div class="card blue-grey darken-1">
@@ -56,7 +57,7 @@
         <select id="cmbEqui" name="cmbEqui" >
       <option value="" disabled selected>Seleccione un equipo</option>
        <%
-                for(Jugadores temp: new JugadoresCtrl().consTodo())
+                for(Jugadores temp: new JugadoresCtrl().consEqui())
                
                 { 
                     int id=-1;
@@ -83,6 +84,17 @@
                 %>
      
     </select>
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Imagen</span>
+                        <input type="file" name="foto" id="foto" required />
+                    </div>
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate" name="foto" type="text" placeholder='1200x1200 máx., 2MB máx., PNG/JPG/GIF'>
+                        </div>
+                
+                </div>
+                <div><img src='data:image/*;base64,$row[foto]' class='materialboxed' width='100px' height='100px'/><div>
             </div>
             <div class="card-action">
              <input class="btn waves-effect waves-light" type="submit" name="btnJuga" value="Guardar"/>

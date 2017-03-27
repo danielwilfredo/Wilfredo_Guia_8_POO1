@@ -116,6 +116,22 @@ public class EquiposServ extends HttpServlet {
                 obje.setCodiEqui(Integer.parseInt(request.getParameter("codi2")));
                 obje.setNombreEqui(request.getParameter("nomb"));
                 obje.setDescEqui(request.getParameter("desc"));
+                //codigo para guardar la imagen
+                Part filepart = request.getPart("foto"); //obtiene la foto
+                int tamaImg = (int)filepart.getSize();//el tamaño de la foto
+                byte[] img = null; //declaramos variable para guardar la foto
+                if(filepart !=null)
+                {
+                    img = new byte[tamaImg];
+                    try(DataInputStream dataImg = new DataInputStream(filepart.getInputStream()))
+                    {
+                        dataImg.readFully(img);
+                    }
+                }
+                if(tamaImg > 0)
+                {
+                    obje.setImg(img);
+                }
                 if(new EquiposCtrl().modi(obje))
                 {
                     mens="Datos Modificados";

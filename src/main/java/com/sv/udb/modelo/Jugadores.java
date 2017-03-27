@@ -18,6 +18,7 @@ public class Jugadores {
     private String edadJuga;
     private int altuJuga;
     private String pesoJuga;
+    private byte[] imgJuga;
 
     public String getPesoJuga() {
         return pesoJuga;
@@ -74,6 +75,25 @@ public class Jugadores {
 
     public void setAltuJuga(int altuJuga) {
         this.altuJuga = altuJuga;
+    }
+
+    public Jugadores(int codiJuga, String nombJuga, String nombEqui, int codiEqui, String edadJuga, int altuJuga, String pesoJuga, byte[] imgJuga) {
+        this.codiJuga = codiJuga;
+        this.nombJuga = nombJuga;
+        this.nombEqui = nombEqui;
+        this.codiEqui = codiEqui;
+        this.edadJuga = edadJuga;
+        this.altuJuga = altuJuga;
+        this.pesoJuga = pesoJuga;
+        this.imgJuga = imgJuga;
+    }
+
+    public byte[] getImgJuga() {
+        return imgJuga;
+    }
+
+    public void setImgJuga(byte[] imgJuga) {
+        this.imgJuga = imgJuga;
     }
      @Override
     public String toString() {

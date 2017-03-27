@@ -96,10 +96,12 @@ public class EquiposCtrl {
         Connection cn = new Conexion().getConn();
         try
         {
-            PreparedStatement cmd = cn.prepareStatement("update equipos set nomb_equi = ?, desc_equi = ? where codi_equi = ?");
+            PreparedStatement cmd = cn.prepareStatement("update equipos set nomb_equi = ?, desc_equi = ?, img_equi=? where codi_equi = ?");
             cmd.setString(1, String.valueOf(obje.getNombreEqui())); 
             cmd.setString(2, String.valueOf(obje.getDescEqui()));
-            cmd.setString(3, String.valueOf(obje.getCodiEqui()));
+             cmd.setBytes(3, obje.getImg());
+            cmd.setString(4, String.valueOf(obje.getCodiEqui()));
+           
             cmd.executeUpdate();
             resp=true;
         }

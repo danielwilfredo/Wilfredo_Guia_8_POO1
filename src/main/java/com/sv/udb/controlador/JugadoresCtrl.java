@@ -148,12 +148,13 @@ public class JugadoresCtrl {
         Connection cn = new Conexion().getConn();
         try
         {
-            PreparedStatement cmd = cn.prepareStatement("INSERT INTO jugadores VALUES(NULL,?,?,?,?,?)");
+            PreparedStatement cmd = cn.prepareStatement("INSERT INTO jugadores VALUES(NULL,?,?,?,?,?,?)");
             cmd.setInt(1, obje.getCodiEqui());
             cmd.setString(2, obje.getNombJuga());
             cmd.setString(3, obje.getEdadJuga());
             cmd.setInt(4, obje.getAltuJuga());
             cmd.setString(5, obje.getPesoJuga());
+            cmd.setBytes(6, obje.getImgJuga());
             cmd.executeUpdate();
             resp=true;
         }
@@ -225,13 +226,14 @@ public class JugadoresCtrl {
         try
         {
             PreparedStatement cmd = cn.prepareStatement("update jugadores set codi_equi = ?, nomb_juga = ?, edad_juga = ?, "
-            + "altu_juga = ?, peso_juga = ? where codi_juga = ?");
+            + "altu_juga = ?, peso_juga = ?, img_juga = ? where codi_juga = ?");
             cmd.setString(1, String.valueOf(obje.getCodiEqui())); 
             cmd.setString(2, String.valueOf(obje.getNombJuga()));
             cmd.setString(3, String.valueOf(obje.getEdadJuga()));
             cmd.setString(4, String.valueOf(obje.getAltuJuga()));
             cmd.setString(5, String.valueOf(obje.getPesoJuga()));
-            cmd.setString(6, String.valueOf(obje.getCodiJuga()));
+            cmd.setBytes(6, obje.getImgJuga());
+            cmd.setString(7, String.valueOf(obje.getCodiJuga()));
             cmd.executeUpdate();
             resp=true;
         }

@@ -7,6 +7,7 @@ package com.sv.udb.vista;
 
 import com.sv.udb.controlador.JugadoresCtrl;
 import com.sv.udb.modelo.Jugadores;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  *
@@ -38,12 +40,10 @@ public class JugadoresServ extends HttpServlet {
          boolean esValido = request.getMethod().equals("POST");
         String mens = "";
         if(!esValido){
-            response.sendRedirect(request.getContextPath() + "/Jugadores.jsp");
+            response.sendRedirect(request.getContextPath() + "/jugadores.jsp");
         }
-        else
-        {
-            String CRUD = request.getParameter("btnJuga");//Declaro una variable para obtener
-            //que se presiono en el boton de la pagina jugadores.jsp
+        else{
+            String CRUD = request.getParameter("btnJuga");
             if(CRUD.equals("Guardar"))
             {
                 Jugadores obje = new Jugadores();
@@ -52,6 +52,22 @@ public class JugadoresServ extends HttpServlet {
                 obje.setEdadJuga((request.getParameter("edadJuga")));
                 obje.setAltuJuga(Integer.parseInt((request.getParameter("altuJuga"))));
                 obje.setPesoJuga((request.getParameter("pesoJuga")));
+                //codigo para guardar la imagen
+                Part filepart = request.getPart("foto"); //obtiene la foto
+                int SizeImg = (int)filepart.getSize();//el tamaño de la foto
+                byte[] img = null; //declaramos variable para guardar la foto
+                if(filepart !=null)
+                {
+                    img = new byte[SizeImg];
+                    try(DataInputStream dataImg = new DataInputStream(filepart.getInputStream()))
+                    {
+                        dataImg.readFully(img);
+                    }
+                }
+                if(SizeImg > 0)
+                {
+                    obje.setImgJuga(img);
+                }
                 if(new JugadoresCtrl().guar(obje))
                 {
                     mens="Datos Guardados";
@@ -108,6 +124,22 @@ public class JugadoresServ extends HttpServlet {
                 obje.setAltuJuga(Integer.parseInt(request.getParameter("altuJuga")));
                 obje.setPesoJuga(request.getParameter("pesoJuga"));
                 obje.setCodiEqui(Integer.parseInt(request.getParameter("cmbEqui")));
+                 //codigo para guardar la imagen
+                Part filepart = request.getPart("foto"); //obtiene la foto
+                int SizeImg = (int)filepart.getSize();//el tamaño de la foto
+                byte[] img = null; //declaramos variable para guardar la foto
+                if(filepart !=null)
+                {
+                    img = new byte[SizeImg];
+                    try(DataInputStream dataImg = new DataInputStream(filepart.getInputStream()))
+                    {
+                        dataImg.readFully(img);
+                    }
+                }
+                if(SizeImg > 0)
+                {
+                    obje.setImgJuga(img);
+                }
                 
                 if(new JugadoresCtrl().modi(obje))
                 {
